@@ -1,9 +1,9 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: tallerapi
+  name: gateway
   labels:
-    app: tallerapi
+    app: gateway
 spec:
   ports:
   - name: http
@@ -11,15 +11,15 @@ spec:
     port: 80
     targetPort: 80
   selector:
-    app: tallerapi
+    app: gateway
   type: LoadBalancer  
 ---
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: tallerapi
+  name: gateway
   labels:
-    app: tallerapi
+    app: gateway
 spec:
   strategy:
     rollingUpdate:
@@ -29,11 +29,11 @@ spec:
   template:
     metadata:
       labels:
-        app: tallerapi
+        app: gateway
     spec:
       containers:
       - image: contenedorestaller.azurecr.io/proyecto
-        name: tallerapi
+        name: gateway
         ports:
         - containerPort: 80
           name: http
@@ -43,12 +43,12 @@ spec:
           requests:
             cpu: 100m
       imagePullSecrets:
-        - name: secretapi
+        - name: secretapi3
 ---      
 apiVersion: autoscaling/v1
 kind: HorizontalPodAutoscaler
 metadata:
-  name: tallerapi
+  name: gateway
 spec:
   scaleTargetRef:
     kind: Deployment
