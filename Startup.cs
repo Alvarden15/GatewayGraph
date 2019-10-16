@@ -21,7 +21,7 @@ namespace GatewayGraph
             // services.AddInMemorySubscriptionProvider();
 
             // this enables you to use DataLoader in your resolvers.
-            services.AddDataLoaderRegistry();
+            //services.AddDataLoaderRegistry();
 
             //services.AddDataLoaderRegistry();
 
@@ -57,7 +57,7 @@ namespace GatewayGraph
             //app.UseWebSockets();
             app.UseGraphQL();
             app.UseHttpsRedirection();
-            app.UseHttpMethodOverride();
+            //app.UseHttpMethodOverride();
             // enable this if you want to use graphiql instead of playground.
             app.UseGraphiQL();
             //app.UsePlayground();
