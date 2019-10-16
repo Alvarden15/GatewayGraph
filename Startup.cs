@@ -23,12 +23,22 @@ namespace GatewayGraph
             // this enables you to use DataLoader in your resolvers.
             services.AddDataLoaderRegistry();
 
-             services.AddDataLoaderRegistry();
+            //services.AddDataLoaderRegistry();
+
+            /*
             services.AddHttpClient("alumno",(sp,client)=>{
                 client.BaseAddress= new Uri("https://localhost:5221/graphql/");
             });
             services.AddHttpClient("casa",(sp,client)=>{
                 client.BaseAddress= new Uri("https://localhost:5551/graphql/");
+            });
+            
+             */
+            services.AddHttpClient("alumno",(sp,client)=>{
+                client.BaseAddress= new Uri("http://52.167.142.169/graphql/");
+            });
+            services.AddHttpClient("casa",(sp,client)=>{
+                client.BaseAddress= new Uri("http://52.232.182.12/graphql/");
             });
             services.AddStitchedSchema(s=>
             s.AddSchemaFromHttp("alumno").AddSchemaFromHttp("casa"));
@@ -49,8 +59,8 @@ namespace GatewayGraph
             app.UseHttpsRedirection();
             app.UseHttpMethodOverride();
             // enable this if you want to use graphiql instead of playground.
-            // app.UseGraphiQL();
-            app.UsePlayground();
+            app.UseGraphiQL();
+            //app.UsePlayground();
         }
     }
 }
