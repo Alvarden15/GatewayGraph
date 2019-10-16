@@ -1,4 +1,4 @@
-FROM alpine:3.10 
+FROM alpine:3.10
  
 # Install packages 
 FROM mcr.microsoft.com/dotnet/core/sdk:3.0 AS build-env 
