@@ -56,7 +56,7 @@ namespace GatewayGraph
             // enable this if you want tu support subscription.
             //app.UseWebSockets();
             app.UseGraphQL();
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
             //app.UseHttpMethodOverride();
             // enable this if you want to use graphiql instead of playground.
             app.UseGraphiQL();
